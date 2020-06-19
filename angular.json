@@ -11,8 +11,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "webpack.config.js",
+              "mergeStrategies": {
+                "module.rules": "prepend"
+              }
+            },
             "outputPath": "dist/angular-marshal-example",
             "index": "src/index.html",
             "main": "src/main.ts",
